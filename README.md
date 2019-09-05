@@ -26,10 +26,11 @@ FarHome   | D:\pgm\far
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
 
-```batch
+```powershell
 git config --global user.email "david@example.com"
 git config --global user.name "David P."
 git config --global credential.helper wincred
+Install-Module psake
 ```
 
 ## Windows Subsystem for Linux Installation
@@ -45,7 +46,7 @@ From Microsoft Store:
 - Alpine
 - Ubuntu
 
-Add link in Quick Access to \\wsl$\
+Add link in Quick Access to `\\wsl$\`
 
 In Ubuntu console:
 
@@ -54,6 +55,7 @@ sudo apt update
 sudo apt upgrade
 sudo git config --global credential.helper "/mnt/d/pgm/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
 sudo apt install python3-pip
+sudo apt install nodejs
 ```
 
 To disable password prompts for sudo:
@@ -92,7 +94,7 @@ Command to install extensions
 code --install-extension {extension-id}
 ```
 
-Extesions to install in Windows
+Extensions to install in Windows
 
 Extension name | Extension ID | Extension URI
 -------------- | ------------ | -------------
