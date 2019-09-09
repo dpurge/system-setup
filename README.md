@@ -25,11 +25,15 @@ FarHome   | D:\pgm\far
 - [Git for Windows](https://git-scm.com/download/win)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
+- [Zoom](https://zoom.us/support/download)
 
-```powershell
+```bash
 git config --global user.email "david@example.com"
 git config --global user.name "David P."
 git config --global credential.helper wincred
+```
+
+```powershell
 Install-Module psake
 ```
 
@@ -65,6 +69,24 @@ sudo visudo
 david ALL=(root) NOPASSWD: /home/david/.local/bin/start_postgresql.sh
 ```
 
+Export settings for X applications:
+
+```bash
+export DISPLAY=:0
+export LIBGL_ALWAYS_INDIRECT=1
+```
+
+In windows, configure VcXsrv to use:
+
+- multiple windows
+- display number `0`
+- start no client
+- enable clipboard and primary selection
+- enable native opengl
+
+change target of `%AppData%\Microsoft\Windows\Start Menu\Programs\Startup\XLaunch.lnk`
+to: `D:\pgm\VcXsrv\xlaunch.exe -run %userprofile%\Documents\config.xlaunch`
+
 Linux services to start from Windows task scheduler:
 
 Program                      | Arguments
@@ -85,6 +107,23 @@ Install extensions:
 Extension name | Extension ID
 -------------- | --------------------------------
 Save to Pocket | niloccemoadcdkdjlinkgdfekeahmflj
+
+Add bookmarks:
+
+Bookmark | URL
+-------- | ---------------------------
+Apps     | chrome://apps/
+
+Add shortcuts:
+
+Shortcut | URL
+-------- | ---------------------------
+Gmail    | https://mail.google.com/mail/
+Maps     | https://www.google.com/maps/
+Calendar | https://calendar.google.com/calendar/
+Azure    | https://portal.azure.com/
+GitHub   | https://github.com/
+Teams    | https://teams.microsoft.com/
 
 ## VSCode extensions
 
