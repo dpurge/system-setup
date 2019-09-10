@@ -1,0 +1,48 @@
+[Info]	2019-09-10 02:13:03	Creating environment variable JDP_SYSTEM_ROOT in scope 'Machine'...
+[Info]	2019-09-10 02:15:40	Creating environment variable JDP_SYSTEM_ROOT in scope 'Machine': D:\xxx
+[Info]	2019-09-10 02:16:50	Environment variable JDP_SYSTEM_ROOT in scope Machine exists: D:\xxx
+[Info]	2019-09-10 02:25:05	Environment variable JDP_SYSTEM_ROOT in scope Machine exists: D:\xxx
+[Info]	2019-09-10 02:26:14	Environment variable JDP_SYSTEM_ROOT in scope Machine exists: D:\xxx
+[Info]	2019-09-10 02:27:32	Environment variable JDP_SYSTEM_ROOT in scope Machine exists: D:\xxx
+[Info]	2019-09-10 02:27:32	Directory exists: D:\xxx
+[Info]	2019-09-10 02:32:22	Environment variable JDP_SYSTEM_ROOT in scope Machine exists: D:\xxx
+[Info]	2019-09-10 02:32:22	Directory exists: D:\xxx
+[Info]	2019-09-10 02:32:22	Creating src directory: D:\xxx\src
+[Info]	2019-09-10 02:32:22	Creating bin directory: D:\xxx\bin
+[Info]	2019-09-10 02:32:22	Creating pgm directory: D:\xxx\pgm
+[Info]	2019-09-10 02:41:03	Environment variable JDP_SYSTEM_ROOT in scope Machine exists: D:\xxx
+[Info]	2019-09-10 02:41:03	System root directory exists: D:\xxx
+[Info]	2019-09-10 02:41:03	pgm already exists: D:\xxx\pgm
+[Info]	2019-09-10 02:41:03	src already exists: D:\xxx\src
+[Info]	2019-09-10 02:41:03	bin already exists: D:\xxx\bin
+[Info]	2019-09-10 02:44:39	Environment variable JDP_SYSTEM_ROOT in scope Machine exists: D:\xxx
+[Info]	2019-09-10 02:44:39	System root directory exists: D:\xxx
+[Info]	2019-09-10 02:44:39	src already exists: D:\xxx\src
+[Info]	2019-09-10 02:44:39	pgm already exists: D:\xxx\pgm
+[Info]	2019-09-10 02:44:39	bin already exists: D:\xxx\bin
+[Info]	2019-09-10 02:44:39	Setting PATH in 'Machine' scope: D:\xxx\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\pgm\Git\cmd;D:\pgm\VSCode\bin;D:\pgm\go\bin;
+[Info]	2019-09-10 02:45:40	Environment variable JDP_SYSTEM_ROOT in scope Machine exists: D:\xxx
+[Info]	2019-09-10 02:45:40	System root directory exists: D:\xxx
+[Info]	2019-09-10 02:45:40	src already exists: D:\xxx\src
+[Info]	2019-09-10 02:45:40	bin already exists: D:\xxx\bin
+[Info]	2019-09-10 02:45:40	pgm already exists: D:\xxx\pgm
+[Info]	2019-09-10 02:45:40	PATH environment variable in 'Machine' scope contains 'bin' directory: D:\xxx\bin
+[Info]	2019-09-10 02:50:01	Environment variable JDP_SYSTEM_ROOT in scope Machine exists: D:\xxx
+[Info]	2019-09-10 02:50:01	System root directory exists: D:\xxx
+[Info]	2019-09-10 02:50:01	src already exists: D:\xxx\src
+[Info]	2019-09-10 02:50:01	pgm already exists: D:\xxx\pgm
+[Info]	2019-09-10 02:50:01	Creating dat directory: D:\xxx\dat
+[Info]	2019-09-10 02:50:01	bin already exists: D:\xxx\bin
+[Info]	2019-09-10 02:50:01	Creating tmp directory: D:\xxx\tmp
+[Info]	2019-09-10 02:50:01	Creating doc directory: D:\xxx\doc
+[Info]	2019-09-10 02:50:01	PATH environment variable in 'Machine' scope contains 'bin' directory: D:\xxx\bin
+[Info]	2019-09-10 02:50:51	Environment variable JDP_SYSTEM_ROOT in scope Machine exists: D:\xxx
+[Info]	2019-09-10 02:50:51	Creating system root directory: D:\xxx
+[Info]	2019-09-10 02:50:51	Creating dat directory: D:\xxx\dat
+[Info]	2019-09-10 02:50:51	Creating src directory: D:\xxx\src
+[Info]	2019-09-10 02:50:51	Creating tmp directory: D:\xxx\tmp
+[Info]	2019-09-10 02:50:51	Creating pgm directory: D:\xxx\pgm
+[Info]	2019-09-10 02:50:51	Creating doc directory: D:\xxx\doc
+[Info]	2019-09-10 02:50:51	Creating bin directory: D:\xxx\bin
+[Info]	2019-09-10 02:50:51	PATH environment variable in 'Machine' scope contains 'bin' directory: D:\xxx\bin
+[Info]	2019-09-10 03:33:37	Removing environment variable JDP_SYSTEM_ROOT from scope 'Machine'

@@ -1,0 +1,13 @@
+[Success]	2019-09-10 02:24:51	Machine environment variable JDP_SYSTEM_ROOT is defined.
+[Error]	2019-09-10 02:24:51	System root directory does not exist: D:\xxx
+[Success]	2019-09-10 02:33:31	Machine environment variable JDP_SYSTEM_ROOT is defined.
+[Success]	2019-09-10 02:33:31	System root directory exists: D:\xxx
+[Success]	2019-09-10 02:33:31	pgm directory exists: D:\xxx\pgm
+[Success]	2019-09-10 02:33:31	bin directory exists: D:\xxx\bin
+[Error]	2019-09-10 02:33:31	PATH environment variable in 'Machine' scope is missing 'bin' directory: D:\xxx\bin
+[Success]	2019-09-10 02:48:33	Machine environment variable JDP_SYSTEM_ROOT is defined.
+[Success]	2019-09-10 02:48:33	System root directory exists: D:\xxx
+[Success]	2019-09-10 02:48:33	bin directory exists: D:\xxx\bin
+[Success]	2019-09-10 02:48:33	PATH environment variable in 'Machine' scope contains 'bin' directory: D:\xxx\bin
+[Success]	2019-09-10 02:48:33	src directory exists: D:\xxx\src
+[Success]	2019-09-10 02:48:33	pgm directory exists: D:\xxx\pgm

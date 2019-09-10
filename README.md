@@ -25,6 +25,7 @@ FarHome   | D:\pgm\far
 - [Git for Windows](https://git-scm.com/download/win)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
+- [VLC media player](https://get.videolan.org/vlc/3.0.8/win64/vlc-3.0.8-win64.exe)
 - [Zoom](https://zoom.us/support/download)
 
 ```bash
@@ -35,6 +36,14 @@ git config --global credential.helper wincred
 
 ```powershell
 Install-Module psake
+```
+
+Add to the VSCode's `settings.json`:
+
+```json
+{
+   "terminal.integrated.shell.windows" : "D:\\pgm\\powershell\\pwsh.exe"
+}
 ```
 
 ## Windows Subsystem for Linux Installation

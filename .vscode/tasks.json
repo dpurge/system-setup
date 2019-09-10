@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "windows": {
+        "options": {
+            "shell": {
+                "executable": "D:/pgm/powershell/pwsh.exe",
+                "args": [
+                    "-NoProfile",
+                    "-Command", "Invoke-PSake", "${workspaceRoot}/build.psake.ps1"
+                ],
+            }
+        }
+    },
+    "tasks": [
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "-Task Clean -properties @{}",
+            "problemMatcher": []
+        },
+        {
+            "label": "Test",
+            "type": "shell",
+            "command": "-Task Test -properties @{}",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Install",
+            "type": "shell",
+            "command": "-Task Install -properties @{}",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Uninstall",
+            "type": "shell",
+            "command": "-Task Uninstall -properties @{}",
+            "problemMatcher": []
+        }
+    ]
+}
