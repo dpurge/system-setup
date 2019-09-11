@@ -13,6 +13,16 @@
     },
     "tasks": [
         {
+            "label": "Menu",
+            "type": "shell",
+            "command": "-Task Menu -properties @{}",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
             "label": "Clean",
             "type": "shell",
             "command": "-Task Clean -properties @{}",
@@ -32,11 +42,7 @@
             "label": "Install",
             "type": "shell",
             "command": "-Task Install -properties @{}",
-            "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "problemMatcher": []
         },
         {
             "label": "Uninstall",

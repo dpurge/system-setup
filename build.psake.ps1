@@ -35,14 +35,14 @@ properties {
 }
 
 foreach ($item in (Get-ChildItem -Path "$($psake.build_script_dir)\src\function\" -Recurse -Include '*.ps1')) {
-    . $item.FullName
+    Include $item.FullName
 }
 
 foreach ($item in (Get-ChildItem -Path "$($psake.build_script_dir)\src\" -Recurse -Include '*.task.ps1')) {
-    . $item.FullName
+    Include $item.FullName
 }
 
-Task default -depends Test
+Task default -depends Menu
 
 # ---------- # ---------- # ---------- # ---------- # ---------- #
 
