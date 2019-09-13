@@ -105,4 +105,21 @@ Task InstallBaseSystemTools `
         }
         
     }
+
+    $ApplicationDir = Join-Path -Path $ProgramDir -ChildPath 'MuPdf'
+    if (Test-Path -Path $ApplicationDir -PathType Container) {
+        Write-Message -Install -Type Info -Message "MuPdf directory already exists: ${ApplicationDir}"
+    } else {
+        $ZipFile = Join-Path -Path $TempDir -ChildPath 'mupdf-1.16.0-windows.zip'
+        if (-not (Test-Path -Path $ZipFile)) {
+            Write-Message -Install -Type Error -Message "Missing MuPdf installation media: ${ZipFile}"
+        } else {
+            Write-Message -Install -Type Info -Message "Installing MuPdf into: ${ApplicationDir}"
+            Exec {
+                & $SevenZip x "`"${ZipFile}`"" -o"`"${ProgramDir}`""
+            }
+            Rename-Item -Path (Join-Path -Path $ProgramDir -ChildPath 'mupdf-1.16.0-windows') -NewName $ApplicationDir
+        }
+        
+    }
 }
