@@ -116,6 +116,7 @@ Install extensions:
 Extension name | Extension ID
 -------------- | --------------------------------
 Save to Pocket | niloccemoadcdkdjlinkgdfekeahmflj
+Ad block       | gighmmpiobklfepjocnamgkkbiglidom
 
 Add bookmarks:
 
