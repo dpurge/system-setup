@@ -145,10 +145,11 @@ code --install-extension {extension-id}
 
 Extensions to install in Windows
 
-Extension name | Extension ID | Extension URI
--------------- | ------------ | -------------
-markdownlint | davidanson.vscode-markdownlint | xxx
-Remote - WSL | ms-vscode-remote.remote-ws | xxx
+Extension name | Extension ID                   | Extension URI
+-------------- | ------------------------------ | -------------
+markdownlint   | davidanson.vscode-markdownlint | xxx
+Remote - WSL   | ms-vscode-remote.remote-ws     | xxx
+Dart           | dart-code.dart-code            | https://dartcode.org/
 
 Extesions to install in WSL:Ubuntu
 
@@ -157,6 +158,13 @@ Extension name | Extension ID | Extension URI
 markdownlint | davidanson.vscode-markdownlint | xxx
 Python | ms-python.python | xxx
 
+## Android SDK
+
+```bash
+sdkmanager --update
+sdkmanager "build-tools;29.0.2" "extras;google;usb_driver" "platforms;android-29" "platform-tools"
+```
+
 ## ConEmu setup
 
 Task                       | Command
@@ -164,6 +172,22 @@ Task                       | Command
 Shells::PowerShell         | D:\pgm\powershell\pwsh.exe
 Shells::PowerShell (Admin) | D:\pgm\powershell\pwsh.exe -new_console:a
 Tools::Far Manager         | %FarHome%\Far.exe /w /p"%ConEmuDir%\Plugins\ConEmu;%FarHome%\Plugins"
+
+## Environment variables and path
+
+Environemnt variables:
+
+Name | Value
+--- | ---
+JAVA_HOME | D:\pgm\jdk
+ANDROID_HOME | D:\pgm\android
+
+Path entries:
+
+- %JAVA_HOME%\bin
+- %ANDROID_HOME%\tools
+- %ANDROID_HOME%\platform-tools
+- %ANDROID_HOME%\tools\bin
 
 ## Windows shortcuts
 
