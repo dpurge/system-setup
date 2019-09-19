@@ -144,10 +144,11 @@ code --install-extension {extension-id}
 
 Extensions to install in Windows
 
-Extension name | Extension ID | Extension URI
--------------- | ------------ | -------------
-markdownlint | davidanson.vscode-markdownlint | xxx
-Remote - WSL | ms-vscode-remote.remote-ws | xxx
+Extension name | Extension ID                   | Extension URI
+-------------- | ------------------------------ | -------------
+markdownlint   | davidanson.vscode-markdownlint | xxx
+Remote - WSL   | ms-vscode-remote.remote-ws     | xxx
+Dart           | dart-code.dart-code            | https://dartcode.org/
 
 Extesions to install in WSL:Ubuntu
 
