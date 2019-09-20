@@ -172,11 +172,19 @@ avdmanager create avd --name test-01 --package "system-images;android-29;google_
 avdmanager delete avd --name test-01
 emulator -avd test-01
 emulator -avd test-01 -gpu host
+emulator -avd test-01 -gpu angle_indirect
 emulator -avd test-01 -gpu swiftshader_indirect
 
 flutter devices
 flutter run -d emulator-5554
 flutter run
+
+flutter channel master
+flutter upgrade
+flutter config --enable-web
+cd flutter_hello_world
+flutter run -d chrome
+flutter build web
 ```
 
 ## ConEmu setup
