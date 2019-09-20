@@ -150,6 +150,7 @@ Extension name | Extension ID                   | Extension URI
 markdownlint   | davidanson.vscode-markdownlint | xxx
 Remote - WSL   | ms-vscode-remote.remote-ws     | xxx
 Dart           | dart-code.dart-code            | https://dartcode.org/
+Flutter        | dart-code.flutter              | https://dartcode.org/
 
 Extesions to install in WSL:Ubuntu
 
@@ -160,9 +161,22 @@ Python | ms-python.python | xxx
 
 ## Android SDK
 
+Enable *Windows Hypervisor Platform*.
+
 ```bash
 sdkmanager --update
 sdkmanager "build-tools;29.0.2" "extras;google;usb_driver" "platforms;android-29" "platform-tools"
+sdkmanager "system-images;android-29;google_apis;x86_64"
+sdkmanager emulator
+avdmanager create avd --name test-01 --package "system-images;android-29;google_apis;x86_64" --abi x86_64 --sdcard 100M --device 34 --force --path D:/dat/android/test-01
+avdmanager delete avd --name test-01
+emulator -avd test-01
+emulator -avd test-01 -gpu host
+emulator -avd test-01 -gpu swiftshader_indirect
+
+flutter devices
+flutter run -d emulator-5554
+flutter run
 ```
 
 ## ConEmu setup
@@ -177,17 +191,42 @@ Tools::Far Manager         | %FarHome%\Far.exe /w /p"%ConEmuDir%\Plugins\ConEmu;
 
 Environemnt variables:
 
-Name | Value
---- | ---
-JAVA_HOME | D:\pgm\jdk
-ANDROID_HOME | D:\pgm\android
+Name              | Value
+----------------- | ---------------
+JAVA_HOME         | D:\pgm\jdk
+ANDROID_HOME      | D:\pgm\android
+GOPATH            | D:\
+CHROME_EXECUTABLE | D:\pgm\Chromium\chrome.exe
+FarHome           | D:\pgm\far
+JDP_SYSTEM_ROOT   | D:\
+JDP_SYSTEM_PATH   | ...
 
-Path entries:
+Default path entries:
 
+- %SystemRoot%\system32;
+- %SystemRoot%;
+- %SystemRoot%\System32\Wbem;
+- %SystemRoot%\System32\WindowsPowerShell\v1.0\;
+- %SystemRoot%\System32\OpenSSH\;
+- %USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
+
+JDP_SYSTEM_PATH entries:
+
+- D:\bin;
+- D:\pgm\powershell;
+- D:\pgm\conemu;
+- D:\pgm\conemu\ConEmu;
+- D:\pgm\Far
+- D:\pgm\Git\cmd;
+- D:\pgm\VSCode\bin;
+- D:\pgm\go\bin;
 - %JAVA_HOME%\bin
+- %ANDROID_HOME%\emulator
 - %ANDROID_HOME%\tools
 - %ANDROID_HOME%\platform-tools
 - %ANDROID_HOME%\tools\bin
+- D:\pgm\dart-sdk\bin;
+- D:\pgm\flutter\bin;
 
 ## Windows shortcuts
 

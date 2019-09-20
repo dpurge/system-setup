@@ -25,6 +25,22 @@ Task InstallBaseSystemTools `
 
     $SevenZip = Join-Path -Path $ProgramDir -ChildPath '7z\7z.exe'
 
+    $ApplicationDir = Join-Path -Path $ProgramDir -ChildPath 'PowerShell'
+    if (Test-Path -Path $ApplicationDir -PathType Container) {
+        Write-Message -Install -Type Info -Message "Powershell directory already exists: ${ApplicationDir}"
+    } else {
+        $ZipFile = Join-Path -Path $TempDir -ChildPath 'PowerShell-7.0.0-preview.3-win-x64.zip'
+        if (-not (Test-Path -Path $ZipFile)) {
+            Write-Message -Install -Type Error -Message "Missing Powershell installation media: ${ZipFile}"
+        } else {
+            Write-Message -Install -Type Info -Message "Installing Powershell into: ${ApplicationDir}"
+            Exec {
+                & $SevenZip x "`"${ZipFile}`"" -o"`"${ApplicationDir}`""
+            }
+        }
+        
+    }
+
     $ApplicationDir = Join-Path -Path $ProgramDir -ChildPath 'Chromium'
     if (Test-Path -Path $ApplicationDir -PathType Container) {
         Write-Message -Install -Type Info -Message "Chromium directory already exists: ${ApplicationDir}"
@@ -38,22 +54,6 @@ Task InstallBaseSystemTools `
                 & $SevenZip x "`"${ZipFile}`"" -o"`"${ProgramDir}`""
             }
             Rename-Item -Path (Join-Path -Path $ProgramDir -ChildPath 'ungoogled-chromium_67.0.3396.87-3_windows') -NewName $ApplicationDir
-        }
-        
-    }
-
-    $ApplicationDir = Join-Path -Path $ProgramDir -ChildPath 'PowerShell'
-    if (Test-Path -Path $ApplicationDir -PathType Container) {
-        Write-Message -Install -Type Info -Message "Powershell directory already exists: ${ApplicationDir}"
-    } else {
-        $ZipFile = Join-Path -Path $TempDir -ChildPath 'PowerShell-7.0.0-preview.3-win-x64.zip'
-        if (-not (Test-Path -Path $ZipFile)) {
-            Write-Message -Install -Type Error -Message "Missing Powershell installation media: ${ZipFile}"
-        } else {
-            Write-Message -Install -Type Info -Message "Installing Powershell into: ${ApplicationDir}"
-            Exec {
-                & $SevenZip x "`"${ZipFile}`"" -o"`"${ApplicationDir}`""
-            }
         }
         
     }
@@ -90,22 +90,6 @@ Task InstallBaseSystemTools `
         
     }
 
-    $ApplicationDir = Join-Path -Path $ProgramDir -ChildPath 'Go'
-    if (Test-Path -Path $ApplicationDir -PathType Container) {
-        Write-Message -Install -Type Info -Message "Go directory already exists: ${ApplicationDir}"
-    } else {
-        $ZipFile = Join-Path -Path $TempDir -ChildPath 'go1.13.windows-amd64.zip'
-        if (-not (Test-Path -Path $ZipFile)) {
-            Write-Message -Install -Type Error -Message "Missing Go installation media: ${ZipFile}"
-        } else {
-            Write-Message -Install -Type Info -Message "Installing Go into: ${ApplicationDir}"
-            Exec {
-                & $SevenZip x "`"${ZipFile}`"" -o"`"${ProgramDir}`""
-            }
-        }
-        
-    }
-
     $ApplicationDir = Join-Path -Path $ProgramDir -ChildPath 'MuPdf'
     if (Test-Path -Path $ApplicationDir -PathType Container) {
         Write-Message -Install -Type Info -Message "MuPdf directory already exists: ${ApplicationDir}"
@@ -119,22 +103,6 @@ Task InstallBaseSystemTools `
                 & $SevenZip x "`"${ZipFile}`"" -o"`"${ProgramDir}`""
             }
             Rename-Item -Path (Join-Path -Path $ProgramDir -ChildPath 'mupdf-1.16.0-windows') -NewName $ApplicationDir
-        }
-        
-    }
-
-    $ApplicationDir = Join-Path -Path $ProgramDir -ChildPath 'VSCode'
-    if (Test-Path -Path $ApplicationDir -PathType Container) {
-        Write-Message -Install -Type Info -Message "VSCode directory already exists: ${ApplicationDir}"
-    } else {
-        $InstallExe = Join-Path -Path $TempDir -ChildPath 'VSCodeSetup-x64-1.38.1.exe'
-        if (-not (Test-Path -Path $InstallExe)) {
-            Write-Message -Install -Type Error -Message "Missing VSCode installation media: ${InstallExe}"
-        } else {
-            Write-Message -Install -Type Info -Message "Installing VSCode into: ${ApplicationDir}"
-            Exec {
-                & $InstallExe /VERYSILENT /NORESTART /DIR "`"${ApplicationDir}`""
-            }
         }
         
     }

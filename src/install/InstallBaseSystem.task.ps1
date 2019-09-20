@@ -33,7 +33,8 @@ Task InstallBaseSystem `
             New-Item -ItemType Directory -Force -Path $DirPath | Out-Null
         }
     }
-    
+
+    <#
     $PathVar = [Environment]::GetEnvironmentVariable('Path', $SystemScope)
     $BinPath = Join-Path -Path $SystemRootDir -ChildPath $SystemDir['bin']
     if ($PathVar.split(';') -contains $BinPath) {
@@ -43,5 +44,6 @@ Task InstallBaseSystem `
         Write-Message -Install -Type Info -Message "Setting PATH in '${SystemScope}' scope: ${PathVar}"
         [Environment]::SetEnvironmentVariable('Path', $PathVar, $SystemScope)
     }
+    #>
     
 }
