@@ -26,9 +26,11 @@ Task InstallDocumentTools `
         if (-not (Test-Path -Path $Application.InstallMedia -PathType Leaf)) {
             Write-Message -Install -Type Error -Message "Missing $($Application.Name) installation media: $($Application.InstallMedia)"
         } else {
-            Write-Message -Install -Type Info -Message "Installing $($Application.Name) into: $($Application.Executable)"
-            Exec {
-                & $SevenZip x "`"$($Application.InstallMedia)`"" -o"`"${BinDir}`""
+            if (Invoke-YesNoQuestion -title "Installation of $($Application.Name)" -message "Do you want to unzip this application? : $($Application.InstallMedia)") {
+                Write-Message -Install -Type Info -Message "Installing $($Application.Name) into: $($Application.Executable)"
+                Exec {
+                    & $SevenZip x "`"$($Application.InstallMedia)`"" -o"`"${BinDir}`""
+                }
             }
         }
     }
@@ -93,9 +95,11 @@ Task InstallDocumentTools `
         if (-not (Test-Path -Path $Application.InstallMedia -PathType Leaf)) {
             Write-Message -Install -Type Error -Message "Missing $($Application.Name) installation media: $($Application.InstallMedia)"
         } else {
-            Write-Message -Install -Type Info -Message "Installing $($Application.Name) into: $($Application.Directory)"
-            Exec {
-                & $SevenZip x "`"$($Application.InstallMedia)`"" -o"`"${ProgramDir}`""
+            if (Invoke-YesNoQuestion -title "Installation of $($Application.Name)" -message "Do you want to unzip this application? : $($Application.InstallMedia)") {
+                Write-Message -Install -Type Info -Message "Installing $($Application.Name) into: $($Application.Directory)"
+                Exec {
+                    & $SevenZip x "`"$($Application.InstallMedia)`"" -o"`"${ProgramDir}`""
+                }
             }
         }
     }
@@ -114,9 +118,11 @@ Task InstallDocumentTools `
         if (-not (Test-Path -Path $Application.InstallMedia -PathType Leaf)) {
             Write-Message -Install -Type Error -Message "Missing $($Application.Name) installation media: $($Application.InstallMedia)"
         } else {
-            Write-Message -Install -Type Info -Message "Installing $($Application.Name) into: $($Application.Directory)"
-            Exec {
-                & $SevenZip x "`"$($Application.InstallMedia)`"" -o"`"$($Application.Directory)`""
+            if (Invoke-YesNoQuestion -title "Installation of $($Application.Name)" -message "Do you want to unzip this application? : $($Application.InstallMedia)") {
+                Write-Message -Install -Type Info -Message "Installing $($Application.Name) into: $($Application.Directory)"
+                Exec {
+                    & $SevenZip x "`"$($Application.InstallMedia)`"" -o"`"$($Application.Directory)`""
+                }
             }
         }
     }

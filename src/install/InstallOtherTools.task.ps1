@@ -22,8 +22,10 @@ Task InstallOtherTools `
         if (-not (Test-Path -Path $Application.InstallMedia -PathType Leaf)) {
             Write-Message -Install -Type Error -Message "Missing $($Application.Name) installation media: $($Application.InstallMedia)"
         } else {
-            Write-Message -Install -Type Info -Message "Installing $($Application.Name) into: $($Application.Executable)"
-            Copy-Item -Path $Application.InstallMedia -Destination $Application.Executable
+            if (Invoke-YesNoQuestion -title "Installation of $($Application.Name)" -message "Do you want to copy this tool? : $($Application.InstallMedia)") {
+                Write-Message -Install -Type Info -Message "Installing $($Application.Name) into: $($Application.Executable)"
+                Copy-Item -Path $Application.InstallMedia -Destination $Application.Executable
+            }
         }
     }
 
