@@ -8,6 +8,8 @@ function Invoke-InstallMenu {
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Base system","Install base system")
                 (New-Object System.Management.Automation.Host.ChoiceDescription "Base system &tools","Install base system tools")
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Programming tools","Install programming tools")
+                (New-Object System.Management.Automation.Host.ChoiceDescription "&Document tools","Install document tools")
+                (New-Object System.Management.Automation.Host.ChoiceDescription "&Other tools","Install other tools")
             ),
             0)
         
@@ -16,6 +18,8 @@ function Invoke-InstallMenu {
             1 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task InstallBaseSystem }
             2 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task InstallBaseSystemTools }
             3 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task InstallProgrammingTools }
+            4 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task InstallDocumentTools }
+            5 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task InstallOtherTools }
             default { throw "Unsupported menu choice: ${choice}"}
         }
 

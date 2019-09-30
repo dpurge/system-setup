@@ -7,6 +7,8 @@ function Invoke-DownloadMenu {
                 (New-Object System.Management.Automation.Host.ChoiceDescription "E&xit","Exit install menu")
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Base system tools","Download base system tools")
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Programming tools","Download programming tools")
+                (New-Object System.Management.Automation.Host.ChoiceDescription "&Document tools","Download document tools")
+                (New-Object System.Management.Automation.Host.ChoiceDescription "&Other tools","Download other miscelaneous tools")
             ),
             0)
         
@@ -14,6 +16,8 @@ function Invoke-DownloadMenu {
             0 { Write-Host 'Exitting install menu...' }
             1 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadBaseSystemTools }
             2 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadProgrammingTools }
+            3 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadDocumentTools }
+            4 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadOtherTools }
             default { throw "Unsupported menu choice: ${choice}"}
         }
 
