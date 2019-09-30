@@ -211,33 +211,39 @@ JDP_SYSTEM_PATH   | ...
 
 Default path entries:
 
-- %SystemRoot%\system32;
-- %SystemRoot%;
-- %SystemRoot%\System32\Wbem;
-- %SystemRoot%\System32\WindowsPowerShell\v1.0\;
-- %SystemRoot%\System32\OpenSSH\;
-- %USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
+- %SystemRoot%\system32
+- %SystemRoot%
+- %SystemRoot%\System32\Wbem
+- %SystemRoot%\System32\WindowsPowerShell\v1.0\
+- %SystemRoot%\System32\OpenSSH\
+- %USERPROFILE%\AppData\Local\Microsoft\WindowsApps
 
 JDP_SYSTEM_PATH entries:
 
-- D:\bin;
-- D:\pgm\powershell;
-- D:\pgm\conemu;
-- D:\pgm\conemu\ConEmu;
+- D:\bin
+- D:\pgm\powershell
+- D:\pgm\conemu
+- D:\pgm\conemu\ConEmu
 - D:\pgm\Far
-- D:\pgm\Git\cmd;
-- D:\pgm\VSCode\bin;
-- D:\pgm\go\bin;
+- D:\pgm\Git\cmd
+- D:\pgm\VSCode\bin
+- D:\pgm\go\bin
 - %JAVA_HOME%\bin
 - %ANDROID_HOME%\emulator
 - %ANDROID_HOME%\tools
 - %ANDROID_HOME%\platform-tools
 - %ANDROID_HOME%\tools\bin
-- D:\pgm\dart-sdk\bin;
-- D:\pgm\flutter\bin;
+- D:\pgm\dart-sdk\bin
+- D:\pgm\flutter\bin
 
 ## Windows shortcuts
 
 Shortcut | Action
 -------- | ------
 TODO     | TODO
+
+## Registry tricks
+
+Task                 | Registry path
+-------------------- | -------------
+Autorun application  | HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\
