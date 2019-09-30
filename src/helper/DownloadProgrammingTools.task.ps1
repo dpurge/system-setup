@@ -15,6 +15,7 @@ Task DownloadProgrammingTools `
         'https://dl.google.com/android/repository/android-ndk-r20-windows-x86_64.zip'
         'https://storage.googleapis.com/dart-archive/channels/dev/release/2.6.0-dev.1.0/sdk/dartsdk-windows-x64-release.zip'
         'https://storage.googleapis.com/flutter_infra/releases/stable/windows/flutter_windows_v1.9.1+hotfix.2-stable.zip'
+        'https://dl.google.com/dl/android/studio/ide-zips/3.5.0.21/android-studio-ide-191.5791312-windows.zip'
     )) {
         $filename = Split-Path -Path $uri -Leaf
         Invoke-DownloadResource -uri $uri -output "${TempDir}\${filename}"
