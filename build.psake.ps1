@@ -84,6 +84,38 @@ Task InstallDocumentTools `
     -description "Install document processing tools" `
     -depends `
         InstallSystem, GetDocumentTools, InstallApplication
+
+
+Task DownloadMediaTools `
+    -description "Download installation files for media tools" `
+    -depends `
+        GetMediaTools, DownloadApplication
+
+Task TestMediaTools `
+    -description "Verify installation of media tools" `
+    -depends `
+        GetMediaTools, TestApplication
+
+Task InstallMediaTools `
+    -description "Install media tools" `
+    -depends `
+        InstallSystem, GetMediaTools, InstallApplication
+
+
+Task DownloadLearningTools `
+    -description "Download installation files for learning tools" `
+    -depends `
+        GetLearningTools, DownloadApplication
+
+Task TestLearningTools `
+    -description "Verify installation of learning tools" `
+    -depends `
+        GetLearningTools, TestApplication
+
+Task InstallLearningTools `
+    -description "Install learning tools" `
+    -depends `
+        InstallSystem, GetLearningTools, InstallApplication
     
 
 Task DownloadProgrammingTools `

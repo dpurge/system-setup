@@ -54,7 +54,15 @@ function Verify-Resource {
         }
     }
 
+    $SystemPathItems = [Environment]::GetEnvironmentVariable('JDP_SYSTEM_PATH', $SystemScope).split(';')
+
     foreach ($Entry in $Path) {
+        if ($SystemPathItems -contains $Entry) {
+            Write-Message -Test -Type Info -Message "${Application} path entry exists: ${Entry}"
+        } else {
+            $Verified = $False
+            Write-Message -Test -Type Warning -Message "Missing ${Application} path entry: ${Entry}"
+        }
     }
 
     return $Verified
