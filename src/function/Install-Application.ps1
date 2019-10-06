@@ -17,12 +17,14 @@ function Install-Application {
         {
             Download-Resource -uri $Install.Uri -output $Install.Media
             Write-Message -Install -Type Info -Message "Installing application: ${Name}"
-            & $Install.Script -InstallMedia $Install.Media -Directory $Install.Directory
+            Exec { & $Install.Script -InstallMedia $Install.Media -Directory $Install.Directory }
+            <#
             if (Verify-Resource -Application $Name @Verify) {
                 Write-Message -Install -Type Success -Message "Application installed successfully: ${Name}"
             } else {
                 Write-Message -Install -Type Error -Message "Failed to install application: ${Name}"
             }
+            #>
         }
     }
 }

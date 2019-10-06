@@ -5,7 +5,7 @@ function Invoke-DownloadMenu {
             'Please choose what to download...',
             @(
                 (New-Object System.Management.Automation.Host.ChoiceDescription "E&xit","Exit install menu")
-                (New-Object System.Management.Automation.Host.ChoiceDescription "&Base system tools","Download base system tools")
+                (New-Object System.Management.Automation.Host.ChoiceDescription "&Basic tools","Download basic tools")
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Programming tools","Download programming tools")
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Document tools","Download document tools")
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Other tools","Download other miscelaneous tools")
@@ -14,7 +14,7 @@ function Invoke-DownloadMenu {
         
         switch ($choice) {
             0 { Write-Host 'Exitting install menu...' }
-            1 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadBaseSystemTools }
+            1 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadBasicTools }
             2 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadProgrammingTools }
             3 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadDocumentTools }
             4 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadOtherTools }

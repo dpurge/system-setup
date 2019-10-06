@@ -1,4 +1,4 @@
-Task InstallBaseSystem `
+Task InstallSystem `
     -description "Install base system" `
     -depends `
         CreateWorkDirectory `

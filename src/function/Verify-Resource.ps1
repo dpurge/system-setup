@@ -6,6 +6,7 @@ function Verify-Resource {
         $Directory = @(),
         $File = @(),
         $EnvVar = @(),
+        $RegKey = @(),
         $Path = @()
     )
 
@@ -13,23 +14,44 @@ function Verify-Resource {
 
     foreach ($DirName in $Directory) {
         if (Test-Path -Path $DirName -PathType Container) {
-            Write-Message -Install -Type Info -Message "${Application} directory exists: ${DirName}"
+            Write-Message -Test -Type Info -Message "${Application} directory exists: ${DirName}"
         } else {
             $Verified = $False
-            Write-Message -Install -Type Warning -Message "Missing ${Application} directory: ${DirName}"
+            Write-Message -Test -Type Warning -Message "Missing ${Application} directory: ${DirName}"
         }
     }
 
     foreach ($FileName in $File) {
         if (Test-Path -Path $FileName -PathType Leaf) {
-            Write-Message -Install -Type Info -Message "${Application} file exists: ${FileName}"
+            Write-Message -Test -Type Info -Message "${Application} file exists: ${FileName}"
         } else {
             $Verified = $False
-            Write-Message -Install -Type Warning -Message "Missing ${Application} file: ${FileName}"
+            Write-Message -Test -Type Warning -Message "Missing ${Application} file: ${FileName}"
         }
     }
 
-    foreach ($Var in $EnvVar) {
+    foreach ($VarName in $EnvVar.Keys) {
+        $VarValue = [Environment]::GetEnvironmentVariable($VarName, $SystemScope)
+        if ($VarValue) {
+            if ($VarValue -eq $EnvVar.Item($VarName)) {
+                Write-Message -Test -Type Info -Message "${Application} environment variable ${VarName}: ${VarValue}"
+            } else {
+                $Verified = $False
+                Write-Message -Test -Type Warning -Message "Wrong value for ${Application} environment variable ${VarName}: ${VarValue} (expected '$($EnvVar.Item($VarName))'"
+            }
+        } else {
+            $Verified = $False
+            Write-Message -Test -Type Warning -Message "Missing ${Application} environment variable: ${VarName}"
+        }
+    }
+
+    foreach ($Key in $RegKey) {
+        if (Test-Path -Path $DirName -PathType Container) {
+            Write-Message -Test -Type Info -Message "${Application} registry key exists: ${Key}"
+        } else {
+            $Verified = $False
+            Write-Message -Test -Type Warning -Message "Missing ${Application} registry key: ${Key}"
+        }
     }
 
     foreach ($Entry in $Path) {

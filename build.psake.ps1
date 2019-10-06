@@ -29,9 +29,17 @@ properties {
         { $config['SystemScope'] } `
             else { 'User' }
 
-    $DownloadUri = if ($config.ContainsKey('DownloadUri')) `
-        { $config['DownloadUri'] } `
-            else { @{} }
+    # Commonly used variables
+
+    $ProgramDir = Join-Path -Path $SystemRootDir -ChildPath $SystemDir['pgm']
+    $BinDir = Join-Path -Path $SystemRootDir -ChildPath $SystemDir['bin']
+    $SevenZip = Join-Path -Path $ProgramDir -ChildPath '7z\7z.exe'
+    $UninstallRegKey32 = "HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"
+    $UninstallRegKey64 = "HKLM:SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall"
+
+    # Global state
+
+    $Applications = @()
 }
 
 foreach ($item in (Get-ChildItem -Path "$($psake.build_script_dir)\src\function\" -Recurse -Include '*.ps1')) {
@@ -46,20 +54,65 @@ Task default -depends Menu
 
 # ---------- # ---------- # ---------- # ---------- # ---------- #
 
-<#
-Task Install `
-    -description "Install powershell modules on the local system" `
-    -depends Package `
-    -requiredVariable OutputDir, Modules, Version `
-{
-    foreach ($Module in $Modules) {
-	    $NugetFile = Join-Path -Path $OutputDir -ChildPath "${Module}.${script:Version}.nupkg"
-	    Write-Host "Installing powershell module $Module from: $NugetFile"
-		if (-not (Test-Path $NugetFile)) { throw "File does not exist: $NugetFile" }
-		Exec {
-			Install-Module -Name $Module -RequiredVersion $script:Version -Repository $OutputDir -Force
-		}
-    }
-}
-#>
+Task DownloadBasicTools `
+    -description "Download installation media for basic tools" `
+    -depends `
+        GetBasicTools, DownloadApplication
 
+Task TestBasicTools `
+    -description "Verify installation of basic tools" `
+    -depends `
+        GetBasicTools, TestApplication
+
+Task InstallBasicTools `
+    -description "Install basic system tools" `
+    -depends `
+        InstallSystem, GetBasicTools, InstallApplication
+    
+
+Task DownloadDocumentTools `
+    -description "Download installation media for document processing tools" `
+    -depends `
+        GetDocumentTools, DownloadApplication
+
+Task TestDocumentTools `
+    -description "Verify installation of document processing tools" `
+    -depends `
+        GetDocumentTools, TestApplication
+
+Task InstallDocumentTools `
+    -description "Install document processing tools" `
+    -depends `
+        InstallSystem, GetDocumentTools, InstallApplication
+    
+
+Task DownloadProgrammingTools `
+    -description "Download installation media for application development tools" `
+    -depends `
+        GetProgrammingTools, DownloadApplication
+
+Task TestProgrammingTools `
+    -description "Verify installation of application development tools" `
+    -depends `
+        GetProgrammingTools, TestApplication
+
+Task InstallProgrammingTools `
+    -description "Install application development tools" `
+    -depends `
+        InstallSystem, GetProgrammingTools, InstallApplication
+
+
+Task DownloadOtherTools `
+    -description "Download other miscelaneous tools" `
+    -depends `
+        GetOtherTools, DownloadApplication
+
+Task TestOtherTools `
+    -description "Verify installation of other miscelaneous tools" `
+    -depends `
+        GetOtherTools, TestApplication
+
+Task InstallOtherTools `
+    -description "Install other miscelaneous tools" `
+    -depends `
+        InstallSystem, GetOtherTools, InstallApplication

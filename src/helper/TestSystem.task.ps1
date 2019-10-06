@@ -1,4 +1,4 @@
-Task TestBaseSystem `
+Task TestSystem `
     -description "Test base system" `
     -depends `
         CreateWorkDirectory `
