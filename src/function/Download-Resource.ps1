@@ -1,4 +1,4 @@
-function Invoke-DownloadResource {
+function Download-Resource {
     param (
         [Parameter(Mandatory=$true)]
         [string] $uri,

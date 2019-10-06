@@ -12,8 +12,9 @@ Task DownloadBaseSystemTools `
         'https://github.com/Maximus5/ConEmu/releases/download/v19.07.14/ConEmuPack.190714.7z'
         'https://www.farmanager.com/files/Far30b5454.x64.20190823.7z'
         'https://datapacket.dl.sourceforge.net/project/vcxsrv/vcxsrv/1.20.5.1/vcxsrv-64.1.20.5.1.installer.exe'
+        'https://the.earth.li/~sgtatham/putty/0.73/w64/putty.zip'
     )) {
         $filename = Split-Path -Path $uri -Leaf
-        Invoke-DownloadResource -uri $uri -output "${TempDir}\${filename}"
+        Download-Resource -uri $uri -output "${TempDir}\${filename}"
     }
 }

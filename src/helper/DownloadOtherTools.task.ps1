@@ -12,6 +12,6 @@ Task DownloadOtherTools `
         'https://statics.teams.microsoft.com/production-windows-x64/1.2.00.24753/Teams_windows_x64.exe'
     )) {
         $filename = Split-Path -Path $uri -Leaf
-        Invoke-DownloadResource -uri $uri -output "${TempDir}\${filename}"
+        Download-Resource -uri $uri -output "${TempDir}\${filename}"
     }
 }

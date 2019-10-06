@@ -19,6 +19,6 @@ Task DownloadProgrammingTools `
         'https://dl.google.com/dl/android/studio/ide-zips/3.5.0.21/android-studio-ide-191.5791312-windows.zip'
     )) {
         $filename = Split-Path -Path $uri -Leaf
-        Invoke-DownloadResource -uri $uri -output "${TempDir}\${filename}"
+        Download-Resource -uri $uri -output "${TempDir}\${filename}"
     }
 }

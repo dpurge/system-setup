@@ -24,7 +24,7 @@ function Invoke-MainMenu {
             }
         }
         catch {
-            Write-Message -Menu -Type Error -Message $_.Message
+            Write-Message -Menu -Type Error -Message $_ #.Message
         }
 
     } until ($choice -eq 0)

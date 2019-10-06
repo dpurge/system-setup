@@ -13,8 +13,12 @@ Task DownloadDocumentTools `
         'https://inkscape.org/gallery/item/13317/inkscape-0.92.4-x64.7z'
         'http://ftp.task.gda.pl/pub/gnu/emacs/windows/emacs-26/emacs-26.3-x86_64.zip'
         'https://apps.ankiweb.net/downloads/current/anki-2.1.15-windows.exe'
+        'https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20191004-e6625ca-win64-static.zip'
+        'https://ftp.icm.edu.pl/pub/video/vlc/vlc/3.0.8/win64/vlc-3.0.8-win64.exe'
+        'https://www.lesbonscomptes.com/recoll/downloads/downwin-29216b70/recoll-setup-1.25.22-20190827-8d156f50.exe'
+        'https://www.foobar2000.org/files/edcaa07128d5bb8485a19ff8edfb48c5/foobar2000_v1.4.8.exe'
     )) {
         $filename = Split-Path -Path $uri -Leaf
-        Invoke-DownloadResource -uri $uri -output "${TempDir}\${filename}"
+        Download-Resource -uri $uri -output "${TempDir}\${filename}"
     }
 }

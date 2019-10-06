@@ -236,6 +236,14 @@ JDP_SYSTEM_PATH entries:
 - D:\pgm\dart-sdk\bin
 - D:\pgm\flutter\bin
 
+Contents of `%AppData%\Roaming\youtube-dl\config.txt`:
+
+```bash
+--ffmpeg-location "D:\pgm\ffmpeg\bin"
+-f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
+-o "D:\dat\youtube-dl\%(title)s-%(id)s.%(ext)s"
+```
+
 ## Windows shortcuts
 
 Shortcut | Action

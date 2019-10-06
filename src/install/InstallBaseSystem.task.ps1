@@ -34,16 +34,32 @@ Task InstallBaseSystem `
         }
     }
 
-    <#
-    $PathVar = [Environment]::GetEnvironmentVariable('Path', $SystemScope)
     $BinPath = Join-Path -Path $SystemRootDir -ChildPath $SystemDir['bin']
-    if ($PathVar.split(';') -contains $BinPath) {
-        Write-Message -Install -Type Info -Message "PATH environment variable in '${SystemScope}' scope contains 'bin' directory: ${BinPath}"
+
+    $SystemPathVar = [Environment]::GetEnvironmentVariable('JDP_SYSTEM_PATH', $SystemScope)
+
+    if ($SystemPathVar) {
+        Write-Message -Install -Type Info -Message "Environment variable JDP_SYSTEM_PATH in scope ${SystemScope} already exists."
+        if ($SystemPathVar.split(';') -contains $BinPath) {
+            Write-Message -Install -Type Info -Message "JDP_SYSTEM_PATH environment variable in '${SystemScope}' scope contains 'bin' path: ${BinPath}"
+        } else {
+            $SystemPathVar += ";${BinPath}"
+            Write-Message -Install -Type Info -Message "Setting environment variable JDP_SYSTEM_PATH in scope '${SystemScope}': ${SystemPathVar}"
+            [Environment]::SetEnvironmentVariable('JDP_SYSTEM_PATH', $SystemPathVar, $SystemScope)
+        }
     } else {
-        $PathVar = "${BinPath};${PathVar}"
+        Write-Message -Install -Type Info -Message "Creating environment variable JDP_SYSTEM_PATH in scope '${SystemScope}': ${SystemRootDir}"
+        [Environment]::SetEnvironmentVariable('JDP_SYSTEM_PATH', $BinPath, $SystemScope)
+    }
+
+    
+    $PathVar = [Environment]::GetEnvironmentVariable('Path', $SystemScope)
+    if ($PathVar.split(';') -contains $BinPath) {
+        Write-Message -Install -Type Info -Message "PATH environment variable in '${SystemScope}' scope contains 'bin' path: ${BinPath}"
+    } else {
+        $PathVar += ';%JDP_SYSTEM_PATH%'
         Write-Message -Install -Type Info -Message "Setting PATH in '${SystemScope}' scope: ${PathVar}"
         [Environment]::SetEnvironmentVariable('Path', $PathVar, $SystemScope)
+        Write-Message -Install -Type Warning -Message "System path has been changed - please restart your console session!"
     }
-    #>
-    
 }
