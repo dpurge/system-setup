@@ -9,6 +9,26 @@ Task GetProgrammingTools `
     $Script:Applications += @(
 
         @{
+            Name = 'Git'
+            Verify = @{
+                Directory = @(
+                    (Join-Path -Path $ProgramDir -ChildPath 'Git')
+                )
+            }
+            Install = @{
+                Uri = 'https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/Git-2.23.0-64-bit.exe'
+                Media = Join-Path -Path $TempDir -ChildPath 'Git-2.23.0-64-bit.exe'
+                Directory = Join-Path -Path $ProgramDir -ChildPath 'Git'
+                Script = {
+                    param($InstallMedia, $Directory)
+                    & $InstallMedia
+                }
+            }
+        }
+
+        # ----------
+
+        @{
             Name = 'VSCode'
             Verify = @{
                 Directory = @(
@@ -22,6 +42,47 @@ Task GetProgrammingTools `
                 Script = {
                     param($InstallMedia, $Directory)
                     & $InstallMedia
+                }
+            }
+        }
+
+        # ----------
+
+        @{
+            Name = 'Python'
+            Verify = @{
+                Directory = @(
+                    (Join-Path -Path $ProgramDir -ChildPath 'Python')
+                )
+            }
+            Install = @{
+                Uri = 'https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe'
+                Media = Join-Path -Path $TempDir -ChildPath 'python-3.7.4-amd64.exe'
+                Directory = Join-Path -Path $ProgramDir -ChildPath 'Python'
+                Script = {
+                    param($InstallMedia, $Directory)
+                    & $InstallMedia
+                }
+            }
+        }
+
+        # ----------
+
+        @{
+            Name = 'NodeJS'
+            Verify = @{
+                Directory = @(
+                    (Join-Path -Path $ProgramDir -ChildPath 'NodeJS')
+                )
+            }
+            Install = @{
+                Uri = 'https://nodejs.org/dist/v12.10.0/node-v12.10.0-x64.msi'
+                Media = Join-Path -Path $TempDir -ChildPath 'node-v12.10.0-x64.msi'
+                Directory = Join-Path -Path $ProgramDir -ChildPath 'NodeJS'
+                Script = {
+                    param($InstallMedia, $Directory)
+                    Write-Message -Install -Type Info -Message "Installing NodeJS into: ${Directory}"
+                    msiexec /i "`"${InstallMedia}`"" INSTALLDIR="`"${Directory}`"" /qb
                 }
             }
         }
@@ -137,8 +198,6 @@ Task GetProgrammingTools `
         # ----------
 
         <#
-        'https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe'
-        'https://nodejs.org/dist/v12.10.0/node-v12.10.0-x64.msi'
         'https://download.java.net/java/GA/jdk13/5b8a42f3905b406298b72d750b6919f6/33/GPL/openjdk-13_windows-x64_bin.zip'
         #>
 
