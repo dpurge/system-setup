@@ -49,5 +49,25 @@ Task GetLearningTools `
 
         # ----------
 
+        @{
+            Name = 'Capture2Text'
+            Verify = @{
+                Directory = @(
+                    (Join-Path -Path $ProgramDir -ChildPath 'Capture2Text')
+                )
+            }
+            Install = @{
+                Uri = 'https://netcologne.dl.sourceforge.net/project/capture2text/Capture2Text/Capture2Text_v4.6.2/Capture2Text_v4.6.2_64bit.zip'
+                Media = Join-Path -Path $TempDir -ChildPath 'Capture2Text_v4.6.2_64bit.zip'
+                Directory = Join-Path -Path $ProgramDir -ChildPath 'Capture2Text'
+                Script = {
+                    param($InstallMedia, $Directory)
+                    & $SevenZip x "`"${InstallMedia}`"" -o"`"${Directory}\..`""
+                }
+            }
+        }
+
+        # ----------
+
     )
 }
