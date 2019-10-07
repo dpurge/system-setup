@@ -12,6 +12,7 @@ function Invoke-TestMenu {
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Media tools","Test media tools")
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Learning tools","Test learning tools")
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Other tools","Test other miscelaneous tools")
+                (New-Object System.Management.Automation.Host.ChoiceDescription "&All tools","Test everything")
             ),
             0)
         
@@ -24,6 +25,7 @@ function Invoke-TestMenu {
             5 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task TestMediaTools }
             6 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task TestLearningTools }
             7 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task TestOtherTools }
+            8 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task TestEverything }
             default { throw "Unsupported menu choice: ${choice}"}
         }
 

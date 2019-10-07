@@ -11,6 +11,7 @@ function Invoke-DownloadMenu {
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Media tools","Download media tools")
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Learning tools","Download learning tools")
                 (New-Object System.Management.Automation.Host.ChoiceDescription "&Other tools","Download other miscelaneous tools")
+                (New-Object System.Management.Automation.Host.ChoiceDescription "&All tools","Download everything")
             ),
             0)
         
@@ -22,6 +23,7 @@ function Invoke-DownloadMenu {
             4 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadMediaTools }
             5 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadLearningTools }
             6 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadOtherTools }
+            7 { Invoke-PSake "$($psake.build_script_dir)\build.psake.ps1" -Task DownloadEverything }
             default { throw "Unsupported menu choice: ${choice}"}
         }
 
