@@ -30,6 +30,27 @@ Task GetDocumentTools `
         # ----------
 
         @{
+            Name = 'Poppler'
+            Verify = @{
+                Directory = @(
+                    (Join-Path -Path $ProgramDir -ChildPath 'Poppler')
+                )
+            }
+            Install = @{
+                Uri = 'http://blog.alivate.com.au/wp-content/uploads/2018/10/poppler-0.68.0_x86.7z'
+                Media = Join-Path -Path $TempDir -ChildPath 'poppler-0.68.0_x86.7z'
+                Directory = Join-Path -Path $ProgramDir -ChildPath 'Poppler'
+                Script = {
+                    param($InstallMedia, $Directory)
+                    & $SevenZip x "`"${InstallMedia}`"" -o"`"${Directory}\..`""
+                    Rename-Item -Path (Join-Path -Path "${Directory}\.." -ChildPath 'poppler-0.68.0') -NewName $Directory
+                }
+            }
+        }
+
+        # ----------
+
+        @{
             Name = 'SumatraPDF'
             Verify = @{
                 Directory = @(
@@ -145,6 +166,26 @@ Task GetDocumentTools `
                 Script = {
                     param($InstallMedia, $Directory)
                     & $SevenZip x "`"${InstallMedia}`"" -o"`"${Directory}`""
+                }
+            }
+        }
+
+        # ----------
+
+        @{
+            Name = 'ScanTailor'
+            Verify = @{
+                Directory = @(
+                    (Join-Path -Path $ProgramDir -ChildPath 'ScanTailor')
+                )
+            }
+            Install = @{
+                Uri = 'https://github-production-release-asset-2e65be.s3.amazonaws.com/18495032/1b62c9b6-bdb9-11e3-82e8-cc77f2ca071a?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20191013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191013T205702Z&X-Amz-Expires=300&X-Amz-Signature=4c4270650108e5685729c99d6563437adcd4492b01f4c2638b01fc031f4309a4&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dscantailor-0.9.11.1-64bit-install.exe&response-content-type=application%2Foctet-stream'
+                Media = Join-Path -Path $TempDir -ChildPath 'scantailor-0.9.11.1-64bit-install.exe'
+                Directory = Join-Path -Path $ProgramDir -ChildPath 'ScanTailor'
+                Script = {
+                    param($InstallMedia, $Directory)
+                    & $InstallMedia
                 }
             }
         }

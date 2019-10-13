@@ -69,5 +69,25 @@ Task GetMediaTools `
 
         # ----------
 
+        @{
+            Name = 'Kodi'
+            Verify = @{
+                Directory = @(
+                    (Join-Path -Path $ProgramDir -ChildPath 'Kodi')
+                )
+            }
+            Install = @{
+                Uri = 'https://mirror.karneval.cz/pub/xbmc/releases/windows/win64/kodi-18.4-Leia-x64.exe'
+                Media = Join-Path -Path $TempDir -ChildPath 'kodi-18.4-Leia-x64.exe'
+                Directory = Join-Path -Path $ProgramDir -ChildPath 'Kodi'
+                Script = {
+                    param($InstallMedia, $Directory)
+                    & $InstallMedia
+                }
+            }
+        }
+
+        # ----------
+
     )
 }

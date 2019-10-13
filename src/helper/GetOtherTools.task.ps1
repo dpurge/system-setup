@@ -9,6 +9,26 @@ Task GetOtherTools `
     $Script:Applications += @(
 
         @{
+            Name = 'Torrent-File-Editor'
+            Verify = @{
+                File = @(
+                    (Join-Path -Path $BinDir -ChildPath 'torrent-file-editor.exe')
+                )
+            }
+            Install = @{
+                Uri = 'https://netix.dl.sourceforge.net/project/torrent-file-editor/v0.3.14/torrent-file-editor-0.3.14-x64.exe'
+                Media = Join-Path -Path $TempDir -ChildPath 'torrent-file-editor-0.3.14-x64.exe'
+                Directory = $BinDir
+                Script = {
+                    param($InstallMedia, $Directory)
+                    Copy-Item -Path $InstallMedia -Destination $Directory\torrent-file-editor.exe
+                }
+            }
+        }
+
+        # ----------
+
+        @{
             Name = 'YouTube-Dl'
             Verify = @{
                 File = @(
