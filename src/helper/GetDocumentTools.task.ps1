@@ -192,5 +192,23 @@ Task GetDocumentTools `
 
         # ----------
 
+        @{
+            Name = 'ImageMagick'
+            Verify = @{
+                Directory = @(
+                    (Join-Path -Path $ProgramDir -ChildPath 'ImageMagick')
+                )
+            }
+            Install = @{
+                Uri = 'https://imagemagick.org/download/binaries/ImageMagick-7.0.8-68-Q16-x64-dll.exe'
+                Media = Join-Path -Path $TempDir -ChildPath 'ImageMagick-7.0.8-68-Q16-x64-dll.exe'
+                Directory = Join-Path -Path $ProgramDir -ChildPath 'ImageMagick'
+                Script = {
+                    param($InstallMedia, $Directory)
+                    & $InstallMedia
+                }
+            }
+        }
+
     )
 }
