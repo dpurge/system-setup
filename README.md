@@ -113,10 +113,11 @@ chrome://flags/#extension-mime-request-handling | Always prompt for install
 
 Install extensions:
 
-Extension name | Extension ID
--------------- | --------------------------------
-Save to Pocket | niloccemoadcdkdjlinkgdfekeahmflj
-Ad block       | gighmmpiobklfepjocnamgkkbiglidom
+Extension name      | Extension ID
+------------------- | --------------------------------
+Save to Pocket      | niloccemoadcdkdjlinkgdfekeahmflj
+Ad block            | gighmmpiobklfepjocnamgkkbiglidom
+Windows 10 Accounts | ppnbnpeolgkicgegkbkbjmhlideopiji
 
 Add bookmarks:
 
