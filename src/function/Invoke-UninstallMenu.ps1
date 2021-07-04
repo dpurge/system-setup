@@ -5,7 +5,7 @@ function Invoke-UninstallMenu {
             'Please choose what to uninstall...',
             @(
                 (New-Object System.Management.Automation.Host.ChoiceDescription "E&xit","Exit uninstall menu")
-                (New-Object System.Management.Automation.Host.ChoiceDescription "&Base system","Uninstall base system")
+                (New-Object System.Management.Automation.Host.ChoiceDescription "&Base","Uninstall base system")
             ),
             0)
         

@@ -34,6 +34,6 @@ function Write-Message {
     if ( $download ) { Add-Content -Path (Join-Path -Path $LogDir -ChildPath 'download.log') -Value $FormattedMessage }
     if ( $menu ) { Add-Content -Path (Join-Path -Path $LogDir -ChildPath 'menu.log') -Value $FormattedMessage }
 
-    if ($Type -eq 'Error') {throw $FormattedMessage}
+    # if ($Type -eq 'Error') {throw $FormattedMessage}
     
 }

@@ -3,7 +3,7 @@
     "windows": {
         "options": {
             "shell": {
-                "executable": "D:/pgm/powershell/pwsh.exe",
+                "executable": "pwsh",
                 "args": [
                     "-NoProfile",
                     "-Command", "Invoke-PSake", "${workspaceRoot}/build.psake.ps1"

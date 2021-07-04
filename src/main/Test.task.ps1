@@ -1,4 +1,4 @@
 Task Test `
-    -description "Execute unit tests" `
+    -description "Execute tests" `
     -depends `
-        TestBaseSystem
+        TestSystem

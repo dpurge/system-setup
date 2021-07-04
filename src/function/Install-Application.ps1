@@ -7,7 +7,7 @@ function Install-Application {
         $Verify,
 
         [Parameter(Mandatory=$true)]
-        $install
+        $Install
     )
 
     if (-not (Verify-Resource -Application $Name @Verify)) {
